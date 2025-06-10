@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Bike } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
@@ -25,7 +24,7 @@ const Navigation = () => {
       transition={{ duration: 0.5 }}
       className="fixed top-4 left-4 right-4 z-50"
     >
-      <div className={`transition-all duration-300 rounded-3xl ${
+      <div className={`rounded-full ${
         isScrolled 
           ? 'bg-black/30 backdrop-blur-xl border border-white/15' 
           : 'bg-black/20 backdrop-blur-lg border border-white/10'
@@ -35,7 +34,7 @@ const Navigation = () => {
             {/* Logo */}
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Bike size={18} className="text-white" />
+                <span className="text-white font-bold text-lg">$</span>
               </div>
               <span className="text-white font-bold text-xl">FlexiFare</span>
             </div>
