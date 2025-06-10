@@ -1,12 +1,46 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+  useEffect(() => {
+    // Initialize Unicorn Studio after component mounts
+    if (window.UnicornStudio) {
+      window.UnicornStudio.init()
+        .then((scenes) => {
+          console.log('Unicorn Studio scenes ready:', scenes);
+        })
+        .catch((err) => {
+          console.error('Unicorn Studio error:', err);
+        });
+    }
+
+    // Cleanup on unmount
+    return () => {
+      if (window.UnicornStudio) {
+        window.UnicornStudio.destroy();
+      }
+    };
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative">
+      {/* Unicorn Studio Animated Background */}
+      <div 
+        className="absolute inset-0 z-0"
+        data-us-project="hZWSaBUswXwEPJzHJQPP"
+        data-us-scale="1"
+        data-us-dpi="1.5"
+        data-us-lazyload="true"
+        data-us-disablemobile="false"
+        data-us-alttext="FlexiFare animated background"
+        data-us-arialabel="Animated background for FlexiFare pricing engine"
+        style={{ width: '100%', height: '100%' }}
+      />
+      
+      {/* Content overlay */}
+      <div className="max-w-5xl mx-auto text-center relative z-10">
         {/* Main Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
