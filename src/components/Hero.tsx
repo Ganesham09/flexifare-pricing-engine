@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { WordRotate } from '@/components/ui/word-rotate';
+import { ShimmerButton } from '@/components/magicui/shimmer-button';
 
 const Hero = () => {
   useEffect(() => {
@@ -65,15 +66,17 @@ const Hero = () => {
           </h1>
         </motion.div>
 
-        {/* Subtitle */}
+        {/* Subtitle with dynamic contrast */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-md text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed"
+          className="text-md max-w-2xl mx-auto mb-8 leading-relaxed relative"
         >
-          Easily manage and apply differential pricing based on distance, time, day, and waiting charges. 
-          Tailored for ride services like Uber/Ola, built with customization in mind.
+          <span className="relative z-10 mix-blend-difference text-white">
+            Easily manage and apply differential pricing based on distance, time, day, and waiting charges. 
+            Tailored for ride services like Uber/Ola, built with customization in mind.
+          </span>
         </motion.p>
 
         {/* CTA Button */}
@@ -82,10 +85,13 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Button size="lg" className="bg-gradient-to-r from-blue-600/80 to-purple-600/80 hover:from-blue-700/90 hover:to-purple-700/90 backdrop-blur-sm border border-white/20 text-white px-8 py-3 text-lg font-medium transition-all duration-200 transform hover:scale-105 flex items-center gap-2 mx-auto rounded-full">
-            Launch FlexiFare Engine 
+          <ShimmerButton
+            background="linear-gradient(to right, rgba(37,99,235,0.8), rgba(147,51,234,0.8))"
+            className="backdrop-blur-sm border border-white/20 text-white px-8 py-3 text-lg font-medium transition-all duration-200 transform hover:scale-105 flex items-center gap-2 mx-auto rounded-full"
+          >
+            Launch FlexiFare Engine
             <ArrowRight size={20} />
-          </Button>
+          </ShimmerButton>
         </motion.div>
 
         {/* Decorative Elements */}
