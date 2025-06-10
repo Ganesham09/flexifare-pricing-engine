@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   useEffect(() => {
@@ -52,7 +53,7 @@ const Hero = () => {
             <div className="text-6xl md:text-7xl xl:text-[5.25rem] font-inter">
               Configurable Pricing
             </div>
-            <div className="text-6xl md:text-7xl xl:text-[5.25rem] font-inter italic mt-2">
+            <div className="text-6xl md:text-7xl xl:text-[5.25rem] font-playfair italic mt-2">
               Built for Flexibility
             </div>
           </h1>
@@ -75,8 +76,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-medium transition-all duration-200 transform hover:scale-105">
-            Launch Pricing Engine
+          <Button size="lg" className="bg-gradient-to-r from-blue-600/80 to-purple-600/80 hover:from-blue-700/90 hover:to-purple-700/90 backdrop-blur-sm border border-white/20 text-white px-8 py-3 text-lg font-medium transition-all duration-200 transform hover:scale-105 flex items-center gap-2 mx-auto">
+            Launch FlexiFare Engine 
+            <ArrowRight size={20} />
           </Button>
         </motion.div>
 

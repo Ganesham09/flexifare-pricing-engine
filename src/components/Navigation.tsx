@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Bike } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
@@ -25,16 +25,18 @@ const Navigation = () => {
       transition={{ duration: 0.5 }}
       className="fixed top-4 left-4 right-4 z-50"
     >
-      <div className={`transition-all duration-300 rounded-2xl ${
+      <div className={`transition-all duration-300 rounded-3xl ${
         isScrolled 
-          ? 'bg-black/40 backdrop-blur-md border border-white/20' 
-          : 'bg-black/20 backdrop-blur-sm border border-white/10'
+          ? 'bg-black/30 backdrop-blur-xl border border-white/15' 
+          : 'bg-black/20 backdrop-blur-lg border border-white/10'
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <Bike size={18} className="text-white" />
+              </div>
               <span className="text-white font-bold text-xl">FlexiFare</span>
             </div>
 
@@ -44,7 +46,7 @@ const Navigation = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-gray-200 hover:text-white transition-colors duration-200 font-medium"
+                  className="text-gray-100 hover:text-white transition-colors duration-200 font-medium"
                 >
                   {item}
                 </a>
